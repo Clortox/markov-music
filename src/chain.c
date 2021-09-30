@@ -7,15 +7,18 @@
 #include "chain.h"
 
 m_node* m_next(const m_node* rhs){
-    uint16_t total = 0;
-    int i = 0;
+    int i = 1;
 
-    uint16_t v = rand() % (sizeof(uint16_t) * 8);
+    long v = rand() % UINT16_MAX - 1;
+    //printf("v : %li\n", v);
 
-    while(v > total){
+    long total = rhs->_conns[i]._probability;
+
+    while(v >= total){
+        //printf("prob : %u\n", rhs->_conns[i]._probability);
         total += rhs->_conns[i]._probability;
         ++i;
     }
 
-    return rhs->_conns[i]._node;
+    return rhs->_conns[i - 1]._node;
 }

@@ -9,7 +9,7 @@ CC = gcc
 FLAGS  = -pipe
 
 CFLAGS  = -Wall
-CFLAGS += -Ofast
+CFLAGS += -O2
 #CFLAGS += -g
 #CFLAGS += -pg
 

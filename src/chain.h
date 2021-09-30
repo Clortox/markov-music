@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdint.h>
+#include <stdio.h>
 
 enum chord {
     one = 0x01,
@@ -24,8 +25,9 @@ enum chord {
 // probability out of the size of a short
 struct m_conn {
     uint16_t _probability;
-    struct m_conn* _node;
+    struct m_node* _node;
 };
+typedef struct m_conn m_conn;
 
 struct m_node {
     enum chord _chord;
